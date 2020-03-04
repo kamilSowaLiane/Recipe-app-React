@@ -2,11 +2,11 @@ import React from 'react'
 
 const Recipe = ({recipes}) => {
     const recipeList = recipes.map(recipe => {
+        console.log(recipe)
         return (
-            <div>
-                <h1>Title</h1>
-                <p>Calories</p>
-                <img src="" alt=""></img>
+            <div key={recipe.recipe.label}>
+                <h1>{recipe.recipe.label}</h1>
+                <img src={recipe.recipe.image} alt=""></img>
             </div>
         )
     })
