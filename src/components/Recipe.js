@@ -1,6 +1,7 @@
 import React from 'react'
+import Ingredients from './Ingredients'
 
-const Recipe = ({recipes}) => {
+const Recipe = ({recipes, handleClick}) => {
     const recipeList = recipes.map(recipe => {
         console.log(recipe)
         return (
@@ -11,6 +12,8 @@ const Recipe = ({recipes}) => {
                 <p>{recipe.recipe.healthLabels}</p>
                 <p>{recipe.recipe.dietLabels}</p>
                 <img src={recipe.recipe.image} alt=""></img>
+                <button onClick={() => handleClick(recipe.recipe.uri)}>Ingredients</button>
+                <Ingredients id={recipe.recipe.uri}/>
             </div>
         )
     })

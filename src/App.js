@@ -17,10 +17,15 @@ function App() {
     const data = await response.json()
     setRecipes(data.hits)
   }
+  const handleClick = (id) => {
+    const page = document.getElementById(id)
+    page.style.display = "none"
+  }
   return (
     <div className="App">
       <h1 className="Greetings">Hello</h1>
-      <Recipe recipes={recipes}/>
+      <button onClick={handleClick}>Page</button>
+      <Recipe recipes={recipes} handleClick={handleClick}/>
     </div>
   );
 }
