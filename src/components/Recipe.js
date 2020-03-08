@@ -3,7 +3,6 @@ import Ingredients from './Ingredients'
 
 const Recipe = ({recipes, handleClick}) => {
     const recipeList = recipes.map(recipe => {
-        console.log(recipe)
         return (
             <div key={recipe.recipe.uri}>
                 <h1>{recipe.recipe.label}</h1>
@@ -13,7 +12,10 @@ const Recipe = ({recipes, handleClick}) => {
                 <p>{recipe.recipe.dietLabels}</p>
                 <img src={recipe.recipe.image} alt=""></img>
                 <button onClick={() => handleClick(recipe.recipe.uri)}>Ingredients</button>
-                <Ingredients id={recipe.recipe.uri}/>
+                <Ingredients 
+                    id={recipe.recipe.uri}
+                    recipe={recipe}
+                />
             </div>
         )
     })

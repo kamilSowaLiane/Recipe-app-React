@@ -19,12 +19,10 @@ function App() {
   }
   const handleClick = (id) => {
     const page = document.getElementById(id)
-    page.style.display = "none"
+    page.style.display === "block" ? page.style.display = "none" : page.style.display = "block"
   }
   return (
     <div className="App">
-      <h1 className="Greetings">Hello</h1>
-      <button onClick={handleClick}>Page</button>
       <Recipe recipes={recipes} handleClick={handleClick}/>
     </div>
   );
