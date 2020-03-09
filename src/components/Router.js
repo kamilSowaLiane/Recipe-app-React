@@ -4,12 +4,14 @@ import App from '../App'
 import Ingredients from './Ingredients'
 
 const Router = () => {
-    <BrowserRouter>
-        <div>
-            <Route path='/' component={App} />
-            <Route path='/ingredients' component={Ingredients} />
-        </div>
-    </BrowserRouter>
+    return(
+        <BrowserRouter>
+            <Switch>
+                <Route path='/' component={App} exact />
+                <Route path='/ingredients' component={Ingredients} />
+            </Switch>
+        </BrowserRouter>
+    )
 }
 
 export default Router
