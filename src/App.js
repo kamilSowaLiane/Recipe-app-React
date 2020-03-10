@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react'
 import './index.css';
 import Recipe from './components/Recipe'
 
@@ -17,13 +17,15 @@ function App() {
     const data = await response.json()
     setRecipes(data.hits)
   }
+  /*
   const handleClick = (id) => {
     const page = document.getElementById(id)
     page.style.display === "block" ? page.style.display = "none" : page.style.display = "block"
   }
+  */
   return (
     <div className="App">
-      <Recipe recipes={recipes} handleClick={handleClick}/>
+      <Recipe recipes={recipes}/>
     </div>
   );
 }

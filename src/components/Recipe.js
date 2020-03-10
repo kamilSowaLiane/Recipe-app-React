@@ -1,7 +1,7 @@
 import React from 'react'
-import Ingredients from './Ingredients'
+import { Link } from 'react-router-dom'
 
-const Recipe = ({recipes, handleClick}) => {
+const Recipe = ({recipes}) => {
     const recipeList = recipes.map(recipe => {
         return (
             <div key={recipe.recipe.uri}>
@@ -11,11 +11,12 @@ const Recipe = ({recipes, handleClick}) => {
                 <p>{recipe.recipe.healthLabels}</p>
                 <p>{recipe.recipe.dietLabels}</p>
                 <img src={recipe.recipe.image} alt=""></img>
-                <button onClick={() => handleClick(recipe.recipe.uri)}>Ingredients</button>
-                <Ingredients 
-                    id={recipe.recipe.uri}
-                    recipe={recipe}
-                />
+                <button>
+                    <Link to={{ 
+                        pathname: `/ingredients/${recipe.recipe.uri.substring(51, 83)}`,
+                        state: { recipe: recipe.recipe.uri.substring(51, 83) }
+                    }}>Ingredients</Link>
+                </button>
             </div>
         )
     })
