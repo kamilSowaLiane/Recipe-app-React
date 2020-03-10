@@ -20,21 +20,23 @@ const Ingredients = () => {
         fetchData()
         return () => { ignore = true; }
         
-    },[location.state.recipe])
-    
+    },[location])
     console.log(activeRecipe)
     
-    
-    /*
-    const ingredientsList = activeRecipe.ingredientLines.map(ingredient => {
-        return <li key={ingredient}>{ingredient}</li>
-    })
-    */
     return (
         <div id={activeRecipe.uri} className="ingredients">
             <h1>{activeRecipe.label}</h1>
             <img src={activeRecipe.image} alt=""></img>
             Source: <a href={activeRecipe.url} target="_blank" rel="noopener noreferrer">{activeRecipe.source}</a>
+            {activeRecipe.length === 0 ? (
+                <div>Loading ...</div>
+            ) : (
+                <ul>
+                    {activeRecipe.ingredientLines.map(ingredient => (
+                        <li key={ingredient}>{ingredient}</li>
+                    ))}
+                </ul>
+            )}
             <p>Diet: {activeRecipe.dietLabels}</p>
             <p>Health: {activeRecipe.healthLabels}</p>
             <p>Cautions: {activeRecipe.cautions}</p>

@@ -13,16 +13,10 @@ function App() {
   },[])
 
   const getRecipes = async () => {
-    const response = await fetch(`https://api.edamam.com/search?q=cheese&app_id=${APP_ID}&app_key=${APP_KEY}`)
+    const response = await fetch(`https://api.edamam.com/search?q=cheese&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=3`)
     const data = await response.json()
     setRecipes(data.hits)
   }
-  /*
-  const handleClick = (id) => {
-    const page = document.getElementById(id)
-    page.style.display === "block" ? page.style.display = "none" : page.style.display = "block"
-  }
-  */
   return (
     <div className="App">
       <Recipe recipes={recipes}/>
