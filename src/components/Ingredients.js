@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, Link } from 'react-router-dom'
 
 const APP_ID = 'f9802810'
 const APP_KEY = 'd893427a6abd4ee178a3b3a98afdeaae'
@@ -22,27 +22,58 @@ const Ingredients = () => {
         
     },[location])
     console.log(activeRecipe)
-    
+
     return (
-        <div id={activeRecipe.uri} className="ingredients">
-            <h1>{activeRecipe.label}</h1>
-            <img src={activeRecipe.image} alt=""></img>
-            Source: <a href={activeRecipe.url} target="_blank" rel="noopener noreferrer">{activeRecipe.source}</a>
+        <div className="container">
             {activeRecipe.length === 0 ? (
                 <div>Loading ...</div>
-            ) : (
-                <ul>
-                    {activeRecipe.ingredientLines.map(ingredient => (
-                        <li key={ingredient}>{ingredient}</li>
-                    ))}
-                </ul>
-            )}
-            <p>Diet: {activeRecipe.dietLabels}</p>
-            <p>Health: {activeRecipe.healthLabels}</p>
-            <p>Cautions: {activeRecipe.cautions}</p>
-            <p>Calories: {Math.floor(activeRecipe.calories)}</p>
-            <p>Total meal weight: {Math.floor(activeRecipe.totalWeight)} g</p>
-            <button>Back</button>
+                ) : (
+                <div id={activeRecipe.uri} className="ingredients">
+                    <h1>{activeRecipe.label}</h1>
+                    <img src={activeRecipe.image} alt=""></img>
+                    Source: <a href={activeRecipe.url} target="_blank" rel="noopener noreferrer">{activeRecipe.source}</a>
+                    <ul>
+                        {activeRecipe.ingredientLines.map(ingredient => (
+                            <li key={ingredient}>{ingredient}</li>
+                        ))}
+                    </ul>
+                    <p>Diet: {activeRecipe.dietLabels}</p>
+                    <p>Health: {activeRecipe.healthLabels}</p>
+                    <p>Cautions: {activeRecipe.cautions}</p>
+                    <p>Calories: {Math.floor(activeRecipe.calories)}</p>
+                    <p>Total meal weight: {Math.floor(activeRecipe.totalWeight)} g</p>
+                    <ul>
+                        {Object.keys(activeRecipe.totalNutrients).map((item, i) => (
+                            i > 1 && i < 6 ?
+                            <li className='nutrition-fats' key={i}>
+                                { activeRecipe.totalNutrients[item].label }: { Math.floor(activeRecipe.totalNutrients[item].quantity) } { activeRecipe.totalNutrients[item].unit }
+                            </li>
+                            :
+                            i < 10 ?
+                            <li className='nutrition-primary' key={i}>
+                                { activeRecipe.totalNutrients[item].label }: { Math.floor(activeRecipe.totalNutrients[item].quantity) } { activeRecipe.totalNutrients[item].unit }
+                            </li>
+                            : i < 18 ?
+                            <li className='nutrition-chemical' key={i}>
+                                { activeRecipe.totalNutrients[item].label }: { Math.floor(activeRecipe.totalNutrients[item].quantity) } { activeRecipe.totalNutrients[item].unit }
+                            </li>
+                            : i < 30 ?
+                            <li className='nutrition-vitamins' key={i}>
+                                { activeRecipe.totalNutrients[item].label }: { Math.floor(activeRecipe.totalNutrients[item].quantity) } { activeRecipe.totalNutrients[item].unit }
+                            </li>
+                            :
+                            <li className='nutrition-water' key={i}>
+                                { activeRecipe.totalNutrients[item].label }: { Math.floor(activeRecipe.totalNutrients[item].quantity) } { activeRecipe.totalNutrients[item].unit }
+                            </li>
+                        ))
+                        }
+                    </ul>
+                    <button>
+                        <Link to='/'>Back</Link>
+                    </button>
+                </div>
+                )
+            }
         </div>
     )
 }
