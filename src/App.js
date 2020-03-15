@@ -15,7 +15,6 @@ function App() {
     const recipeName = e.target.elements.recipeName.value
     var url = `https://api.edamam.com/search?q=${recipeName}&app_id=${APP_ID}&app_key=${APP_KEY}`
     
-    console.log(e.target.elements.health[1])
     if (e.target.elements.hits.value.length > 0 && e.target.elements.hits.value < 100) {
       const hits = e.target.elements.hits.value
       url += `&from=0&to=${hits}`

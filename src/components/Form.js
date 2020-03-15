@@ -43,12 +43,28 @@ const Form = ({ getRecipes }) => {
                     </select>
                 </label>
                 <label>
-                    <input type="checkbox"  id='0' value='alcohol-free' name='health'/>
+                    <input type="checkbox" value='alcohol-free' name='health'/>
                     Alcohol-free
                 </label>
                 <label>
-                    <input type="checkbox"  id='1' value='celery-free' name='health'/>
-                    Celery-free
+                    <input type="checkbox" value='peanut-free' name='health'/>
+                    Peanut-free
+                </label>
+                <label>
+                    <input type="checkbox" value='tree-nut-free' name='health'/>
+                    Tree nuts free
+                </label>
+                <label>
+                    <input type="checkbox" value='sugar-conscious' name='health'/>
+                    Sugar conscious
+                </label>
+                <label>
+                    <input type="checkbox" value='vegetarian' name='health'/>
+                    Vegetarian
+                </label>
+                <label>
+                    <input type="checkbox" value='vegan' name='health'/>
+                    Vegan
                 </label>
                 <label>
                     Maximum number of ingredients
