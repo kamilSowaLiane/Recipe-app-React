@@ -8,8 +8,7 @@ const Recipe = ({recipes}) => {
                 <h1>{recipe.recipe.label}</h1>
                 <p>{Math.floor(recipe.recipe.calories)} calories</p>
                 <p>Total meal weight {Math.floor(recipe.recipe.totalWeight)} g</p>
-                <p>{recipe.recipe.healthLabels}</p>
-                <p>{recipe.recipe.dietLabels}</p>
+                <p>Servings: {recipe.recipe.yield}</p>
                 <img src={recipe.recipe.image} alt=""></img>
                 <button>
                     <Link to={{ 

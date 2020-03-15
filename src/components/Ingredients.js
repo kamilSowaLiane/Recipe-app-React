@@ -37,6 +37,7 @@ const Ingredients = () => {
                             <li key={ingredient}>{ingredient}</li>
                         ))}
                     </ul>
+                    <p>Servings: {activeRecipe.yield}</p>
                     <p>Diet: {activeRecipe.dietLabels}</p>
                     <p>Health: {activeRecipe.healthLabels}</p>
                     <p>Cautions: {activeRecipe.cautions}</p>
