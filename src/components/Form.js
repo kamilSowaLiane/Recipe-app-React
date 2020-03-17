@@ -6,11 +6,11 @@ const Form = ({ getRecipes }) => {
 
     const handleClick = () => {
         const filter = document.getElementsByClassName('filter')[0]
-        if (filter.style.display === 'block') {
+        if (filter.style.display === 'flex') {
             filter.style.display = 'none'
             setIsActive(false)
         } else {
-            filter.style.display = 'block'
+            filter.style.display = 'flex'
             setIsActive(true)
         }
     }
@@ -20,7 +20,6 @@ const Form = ({ getRecipes }) => {
                 Query
                 <input type='text' name='recipeName'/>
             </label>
-            <button type='button' onClick={handleClick}>{isActive ? 'Hide filter' : 'Show filter'}</button>
             <div className='filter'>
                 <label>
                     Hits
@@ -29,6 +28,14 @@ const Form = ({ getRecipes }) => {
                 <label>
                     Calories
                     <input type='text' name='calories'/>
+                </label>
+                <label>
+                    Maximum number of ingredients
+                    <input type='text' name='ingr'/>
+                </label>
+                <label>
+                    excluded
+                    <input type='text' name='excluded'/>
                 </label>
                 <label>
                     Diet
@@ -66,15 +73,8 @@ const Form = ({ getRecipes }) => {
                     <input type="checkbox" value='vegan' name='health'/>
                     Vegan
                 </label>
-                <label>
-                    Maximum number of ingredients
-                    <input type='text' name='ingr'/>
-                </label>
-                <label>
-                    excluded
-                    <input type='text' name='excluded'/>
-                </label>
             </div>
+            <button type='button' onClick={handleClick}>{isActive ? 'Hide filter' : 'Show filter'}</button>
             <button>Search</button>
         </form>
     )

@@ -20,7 +20,7 @@ const Recipe = ({recipes}) => {
         )
     })
     return (
-        <div>
+        <div className='results'>
             {recipeList}
         </div>
     )
