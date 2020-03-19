@@ -17,7 +17,7 @@ const Form = ({ getRecipes }) => {
     return(
         <form onSubmit={getRecipes}>
             <label>
-                Query
+                What are you going to cook today?
                 <input type='text' name='recipeName'/>
             </label>
             <div className='filter'>
@@ -74,8 +74,8 @@ const Form = ({ getRecipes }) => {
                     Vegan
                 </label>
             </div>
-            <button type='button' onClick={handleClick}>{isActive ? 'Hide filter' : 'Show filter'}</button>
-            <button>Search</button>
+            <button type='button' onClick={handleClick}>{isActive ? 'Hide filter' : 'Show filter'}<i className="icon-filter" /></button>
+            <button>Search<i className="icon-search" /></button>
         </form>
     )
 }

@@ -51,6 +51,7 @@ function App() {
   }
   return (
     <div className="App">
+      <header><span><i className="icon-book" />Recipe search app</span></header>
       <Form getRecipes={getRecipes} />
       <Recipe recipes={recipes}/>
     </div>

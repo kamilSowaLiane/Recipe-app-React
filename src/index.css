@@ -1,3 +1,133 @@
+@font-face {
+  font-family: 'fontello';
+  src: url('./font/fontello.eot?9052692#iefix') format('embedded-opentype'),
+       url('./font/fontello.woff2?9052692') format('woff2'),
+       url('./font/fontello.woff?9052692') format('woff'),
+       url('./font/fontello.ttf?9052692') format('truetype'),
+       url('./font/fontello.svg?9052692#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+ 
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+ 
+.icon-book:before { content: '\e800'; } /* '' */
+.icon-search:before { content: '\e801'; } /* '' */
+.icon-spin6:before { content: '\e839'; } /* '' */
+.icon-filter:before { content: '\f0b0'; } /* '' */
+.animate-spin {
+  -moz-animation: spin 2s infinite linear;
+  -o-animation: spin 2s infinite linear;
+  -webkit-animation: spin 2s infinite linear;
+  animation: spin 2s infinite linear;
+  display: inline-block;
+}
+@-moz-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@-webkit-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@-o-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@-ms-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,6 +135,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  background-color: gray;
 }
 
 code {
@@ -12,16 +144,36 @@ code {
     monospace;
 }
 header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 4vw;
   width: 100%;
   background-color: #333333;
+  font-size: 200%;
 }
 .filter {
   display: none;
-  height: 130px;
+  height: 140px;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+.filter input {
+  width: 50px;
+}
+.filter label {
+  padding: 1px;
+}
+form button {
+  background: none;
+  border: 2px solid black;
+  font-size: 120%;
+  padding: 7px;
+  margin: 3px;
+}
+button:hover {
+  cursor: pointer;
 }
 form {
   display: flex;
@@ -29,6 +181,31 @@ form {
   align-items: center;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  background-color: #555555;
+}
+form > label {
+  font-family: 'Lobster', cursive;
+  font-size: xx-large;
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+  align-items: center;
+}
+form > label > input {
+  margin-top: 15px;
+  width: 50%;
+  padding-bottom: 5px;
+  border: none;
+  border-bottom: 2px solid black;
+  background: none;
+}
+input:focus, button:focus, textarea { outline: none ! important; }
+.results {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
 }
 /*
 #root {
@@ -47,17 +224,6 @@ form {
   border: 3px solid black;
   border-radius: 10px;
 }
-form > label {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.results {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  width: 100%;
-}
+
+
 */

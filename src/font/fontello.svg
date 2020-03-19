@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2020 by original authors @ fontello.com</metadata>
+<defs>
+<font id="fontello" horiz-adv-x="1000" >
+<font-face font-family="fontello" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="book" unicode="&#xe800;" d="M682 594q18-8 18-28l0-562q0-14-12-25t-28-11q-46 0-46 36l0 522q0 12-12 18l-404 216q-32 10-68-10-44-20-56-44l408-228q18-8 18-28l0-550q0-22-18-28-6-4-16-4-14 0-20 4-8 6-202 127t-212 131q-26 18-26 34l-6 524q0 28 14 52 28 46 102 77t116 9z" horiz-adv-x="700" />
+
+<glyph glyph-name="search" unicode="&#xe801;" d="M680 256c-55-55-126-83-197-83-65 0-129 23-182 66l-51-125-130-130c-14-10-29-15-45-15-41 0-75 37-75 77 0 16 5 32 15 45l129 130 126 51c-44 52-66 117-66 182 0 152 127 277 279 277 150 0 277-128 277-278 0-72-26-144-80-197z m-319 75c34-33 78-50 122-50 92 0 170 77 170 172 0 93-79 170-170 170-94 0-172-79-172-170 0-45 17-89 50-122z" horiz-adv-x="760" />
+
+<glyph glyph-name="spin6" unicode="&#xe839;" d="M855 9c-189-190-520-172-705 13-190 190-200 494-28 695 11 13 21 26 35 34 36 23 85 18 117-13 30-31 35-76 16-112-5-9-9-15-16-22-140-151-145-379-8-516 153-153 407-121 542 34 106 122 142 297 77 451-83 198-305 291-510 222l0 1c236 82 492-24 588-252 71-167 37-355-72-493-11-15-23-29-36-42z" horiz-adv-x="1000" />
+
+<glyph glyph-name="filter" unicode="&#xf0b0;" d="M783 685q9-22-8-39l-275-275v-414q0-23-22-33-7-3-14-3-15 0-25 11l-143 143q-10 11-10 25v271l-275 275q-18 17-8 39 9 22 33 22h714q23 0 33-22z" horiz-adv-x="785.7" />
+</font>
+</defs>
+</svg>
