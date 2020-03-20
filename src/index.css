@@ -1,3 +1,5 @@
+/* ICONS */
+
 @font-face {
   font-family: 'fontello';
   src: url('./font/fontello.eot?9052692#iefix') format('embedded-opentype'),
@@ -46,6 +48,9 @@
 .icon-search:before { content: '\e801'; } /* '' */
 .icon-spin6:before { content: '\e839'; } /* '' */
 .icon-filter:before { content: '\f0b0'; } /* '' */
+
+/* ANIMATION */
+
 .animate-spin {
   -moz-animation: spin 2s infinite linear;
   -o-animation: spin 2s infinite linear;
@@ -128,20 +133,16 @@
     transform: rotate(359deg);
   }
 }
+
+/* APP */ 
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Baloo Paaji 2';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
   background-color: gray;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
 }
 header {
   display: flex;
@@ -155,15 +156,24 @@ header {
 .filter {
   display: none;
   height: 140px;
-  flex-direction: column;
-  flex-wrap: wrap;
   justify-content: space-evenly;
 }
+.input-text, .input-checkbox {
+  display: flex;
+  flex-direction: column;
+}
 .filter input {
-  width: 50px;
+  width: 30px;
+  margin: 2px;
 }
 .filter label {
-  padding: 1px;
+  height: 23px;
+}
+.input-text > label:nth-child(4) > input {
+  width: 120px;
+}
+.input-text > label:nth-child(2) > input {
+  width: 100px;
 }
 form button {
   background: none;
@@ -198,14 +208,54 @@ form > label > input {
   border: none;
   border-bottom: 2px solid black;
   background: none;
+  font-size: 60%;
+}
+.buttons {
+  margin-bottom: 15px;
+  font-weight: bold;
 }
 input:focus, button:focus, textarea { outline: none ! important; }
 .results {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
   width: 100%;
+}
+.recipe {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 15px;
+}
+.recipe h2 {
+  border-bottom: 5px solid black;
+  margin-bottom: 0;
+}
+.recipe img {
+  border-radius: 10px 10px 0 0;
+  border: 2px solid black;
+}
+.recipe p {
+  margin: 0;
+  margin-bottom: 3px;
+}
+.recipe p:first-of-type {
+  font-family: 'Lobster';
+  text-align: right;
+}
+.recipe button {
+  background: none;
+  border: 2px solid black;
+  border-top: 0;
+  padding: 3px;
+}
+.recipe button a {
+  text-decoration: none;
+  color: black;
+  font-size: 150%;
+  font-weight: bold;
+  font-family: 'Baloo Paaji 2';
 }
 /*
 #root {
