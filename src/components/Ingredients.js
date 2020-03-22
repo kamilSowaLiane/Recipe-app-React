@@ -26,24 +26,31 @@ const Ingredients = () => {
     return (
         <div className="container">
             {activeRecipe.length === 0 ? (
-                <div>Loading ...</div>
+                <div className='ingredients-loading'>Loading <i className='icon-spin6 animation' /></div>
                 ) : (
-                <div id={activeRecipe.uri} className="ingredients">
-                    <h1>{activeRecipe.label}</h1>
-                    <img src={activeRecipe.image} alt=""></img>
-                    Source: <a href={activeRecipe.url} target="_blank" rel="noopener noreferrer">{activeRecipe.source}</a>
-                    <ul>
+                <div id={activeRecipe.uri} className="ingredients-page">
+                    <div>
+                        <h1>{activeRecipe.label}</h1>
+                        <img src={activeRecipe.image} alt=""></img>
+                        Source: <a href={activeRecipe.url} target="_blank" rel="noopener noreferrer">{activeRecipe.source}</a>
+                        <p>Servings: {activeRecipe.yield}</p>
+                        <p>Diet: {activeRecipe.dietLabels}</p>
+                        <p>Health: {activeRecipe.healthLabels}</p>
+                        <p>Cautions: {activeRecipe.cautions}</p>
+                        <p>Calories: {Math.floor(activeRecipe.calories)}</p>
+                        <p>Total meal weight: {Math.floor(activeRecipe.totalWeight)} g</p>
+                        <button>
+                            <Link to='/'>Back</Link>
+                        </button>
+                    </div>
+                    <ul className='ingredients'>
+                        <h2>Ingredients</h2>
                         {activeRecipe.ingredientLines.map(ingredient => (
                             <li key={ingredient}>{ingredient}</li>
                         ))}
                     </ul>
-                    <p>Servings: {activeRecipe.yield}</p>
-                    <p>Diet: {activeRecipe.dietLabels}</p>
-                    <p>Health: {activeRecipe.healthLabels}</p>
-                    <p>Cautions: {activeRecipe.cautions}</p>
-                    <p>Calories: {Math.floor(activeRecipe.calories)}</p>
-                    <p>Total meal weight: {Math.floor(activeRecipe.totalWeight)} g</p>
-                    <ul>
+                    <ul className='nutrition'>
+                        <h2>Nutrition</h2>
                         {Object.keys(activeRecipe.totalNutrients).map((item, i) => (
                             i > 1 && i < 6 ?
                             <li className='nutrition-fats' key={i}>
@@ -69,9 +76,6 @@ const Ingredients = () => {
                         ))
                         }
                     </ul>
-                    <button>
-                        <Link to='/'>Back</Link>
-                    </button>
                 </div>
                 )
             }

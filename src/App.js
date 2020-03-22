@@ -47,7 +47,6 @@ function App() {
     const response = await fetch(url)
     const data = await response.json()
     setRecipes(data.hits)
-    console.log(url)
   }
   return (
     <div className="App">

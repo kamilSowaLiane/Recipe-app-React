@@ -257,6 +257,37 @@ input:focus, button:focus, textarea { outline: none ! important; }
   font-weight: bold;
   font-family: 'Baloo Paaji 2';
 }
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.info p {
+  font-size: 120%;
+}
+.info p:first-of-type {
+  font-family: 'Lobster';
+  font-size: 200%;
+  margin: 15px;
+}
+.ingredients-page {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 100vh;
+  width: 100vw;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  justify-content: space-evenly;
+}
+.ingredients-page h2 {
+  line-height: 30px;
+  margin: 10px 0;
+}
+.nutrition li {
+  line-height: 25px;
+}
 /*
 #root {
   display: flex;
