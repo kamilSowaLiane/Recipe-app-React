@@ -10,12 +10,10 @@ const Recipe = ({recipes}) => {
                 </h2>
                 <p>by {recipe.recipe.source}</p>
                 <img src={recipe.recipe.image} alt=""></img>
-                <button>
-                    <Link to={{ 
-                        pathname: `/ingredients/${recipe.recipe.uri.substring(51, 83)}`,
-                        state: { recipe: recipe.recipe.uri.substring(51, 83) }
-                    }}>View ingredients & more</Link>
-                </button>
+                <Link to={{ 
+                    pathname: `/ingredients/${recipe.recipe.uri.substring(51, 83)}`,
+                    state: { recipe: recipe.recipe.uri.substring(51, 83) }
+                }} className='anchor'>View ingredients & more</Link>
             </div>
         )
     })

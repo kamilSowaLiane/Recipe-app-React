@@ -23,19 +23,20 @@ const Form = ({ getRecipes }) => {
             <div className='filter'>
                 <div className='input-text'>
                     <label>
-                        Hits
+                        Number of recipes
                         <input type='text' name='hits'/>
                     </label>
                     <label>
                         Calories
                         <input type='text' name='calories'/>
+                        (range)
                     </label>
                     <label>
                         Maximum number of ingredients
                         <input type='text' name='ingr'/>
                     </label>
                     <label>
-                        excluded
+                        Excluded ingredient
                         <input type='text' name='excluded'/>
                     </label>
                     <label>

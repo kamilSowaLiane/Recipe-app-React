@@ -135,14 +135,16 @@
 }
 
 /* APP */ 
-
+* {
+  font-family: 'Baloo Paaji 2';
+}
 body {
   margin: 0;
-  font-family: 'Baloo Paaji 2';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
-  background-color: gray;
+  background: #649173;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #DBD5A4, #cfff95);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #DBD5A4, #cfff95); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 header {
   display: flex;
@@ -150,7 +152,7 @@ header {
   justify-content: center;
   height: 4vw;
   width: 100%;
-  background-color: #333333;
+  background-color: #6b9b37;
   font-size: 200%;
 }
 .filter {
@@ -163,6 +165,7 @@ header {
   flex-direction: column;
 }
 .filter input {
+  height: 15px;
   width: 30px;
   margin: 2px;
 }
@@ -175,11 +178,11 @@ header {
 .input-text > label:nth-child(2) > input {
   width: 100px;
 }
-form button {
+.buttons button {
   background: none;
   border: 2px solid black;
   font-size: 120%;
-  padding: 7px;
+  padding: 7px 14px;
   margin: 3px;
 }
 button:hover {
@@ -191,7 +194,7 @@ form {
   align-items: center;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  background-color: #555555;
+  background-color: #9ccc65;
 }
 form > label {
   font-family: 'Lobster', cursive;
@@ -244,20 +247,24 @@ input:focus, button:focus, textarea { outline: none ! important; }
   font-family: 'Lobster';
   text-align: right;
 }
-.recipe button {
-  background: none;
-  border: 2px solid black;
-  border-top: 0;
-  padding: 3px;
-}
-.recipe button a {
+.anchor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
   color: black;
-  font-size: 150%;
+  font-size: 120%;
   font-weight: bold;
-  font-family: 'Baloo Paaji 2';
+  border: 2px solid black;
+}
+.recipe .anchor {
+  border-top: none;
+}
+.ingredients-page .anchor {
+  margin: 15px 0;
 }
 .info {
+  padding-top: 15vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -265,6 +272,7 @@ input:focus, button:focus, textarea { outline: none ! important; }
 }
 .info p {
   font-size: 120%;
+  padding: 0 20px;
 }
 .info p:first-of-type {
   font-family: 'Lobster';
@@ -281,12 +289,61 @@ input:focus, button:focus, textarea { outline: none ! important; }
   overflow-x: hidden;
   justify-content: space-evenly;
 }
+.ingredients-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  font-family: 'Lobster';
+  height: 100vh;
+}
+.ingredients-page h1 {
+  border-bottom: 2px solid black;
+}
 .ingredients-page h2 {
   line-height: 30px;
   margin: 10px 0;
 }
+.ingredients-page > div {
+  display: flex;
+  flex-direction: column;
+}
+.ingredients-page > div > img {
+  width: 350px;
+  height: 350px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+.ingredients-page > div > p {
+  font-weight: 900;
+  margin: 0 5px;
+}
+.ingredients-page > div > label {
+  font-weight: 900;
+  align-self: flex-end;
+}
+.ingredients-page > div > button {
+  background: none;
+  padding: 5px;
+  border: 2px solid black;
+  margin: 20px 0;
+}
+.ingredients-page > div > button > a {
+  text-decoration: none;
+  color: black;
+  font-size: 120%;
+  font-weight: bold;
+}
 .nutrition li {
-  line-height: 25px;
+  height: 25px;
+  list-style-type: none;
+}
+.nutrition-fats {
+  list-style-type: none;
+  text-indent: 10px;
+}
+.nutrition-primary:first {
+  border-top: 2px solid black;
 }
 /*
 #root {

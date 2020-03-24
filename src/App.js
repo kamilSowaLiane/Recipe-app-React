@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './index.css';
 import Recipe from './components/Recipe'
 import Form from './components/Form'
@@ -19,7 +19,7 @@ function App() {
       const hits = e.target.elements.hits.value
       url += `&from=0&to=${hits}`
     }
-    if (e.target.elements.calories.value.length > 1 && e.target.calories.value > 10) {
+    if (e.target.elements.calories.value.length > 1) {
       const calories = e.target.elements.calories.value
       url += `&calories=${calories}`
     }
@@ -48,6 +48,15 @@ function App() {
     const data = await response.json()
     setRecipes(data.hits)
   }
+  useEffect(()=> {
+    const json = localStorage.getItem('recipes')
+    const recipes = JSON.parse(json);
+    setRecipes(recipes)
+  },[])
+  useEffect(()=> {
+    const state = JSON.stringify(recipes)
+    localStorage.setItem('recipes', state)
+  },[recipes])
   return (
     <div className="App">
       <header><span><i className="icon-book" />Recipe search app</span></header>

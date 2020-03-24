@@ -21,38 +21,42 @@ const Ingredients = () => {
         return () => { ignore = true; }
         
     },[location])
-    console.log(activeRecipe)
-
+    
     return (
         <div className="container">
             {activeRecipe.length === 0 ? (
-                <div className='ingredients-loading'>Loading <i className='icon-spin6 animation' /></div>
+                <div className='ingredients-loading'>Loading <i className='icon-spin6 animate-spin' /></div>
                 ) : (
                 <div id={activeRecipe.uri} className="ingredients-page">
                     <div>
                         <h1>{activeRecipe.label}</h1>
                         <img src={activeRecipe.image} alt=""></img>
-                        Source: <a href={activeRecipe.url} target="_blank" rel="noopener noreferrer">{activeRecipe.source}</a>
-                        <p>Servings: {activeRecipe.yield}</p>
-                        <p>Diet: {activeRecipe.dietLabels}</p>
-                        <p>Health: {activeRecipe.healthLabels}</p>
-                        <p>Cautions: {activeRecipe.cautions}</p>
+                        <label>Source: <a href={activeRecipe.url} target="_blank" rel="noopener noreferrer">{activeRecipe.source}</a></label>
                         <p>Calories: {Math.floor(activeRecipe.calories)}</p>
                         <p>Total meal weight: {Math.floor(activeRecipe.totalWeight)} g</p>
-                        <button>
-                            <Link to='/'>Back</Link>
-                        </button>
+                        <p>Servings: {activeRecipe.yield}</p>
+                        <p>Diet: {activeRecipe.dietLabels}</p>
+                        <p>Cautions: {activeRecipe.cautions.map(caution => (`${caution}  `))}</p> 
+                        <Link to='/' className='anchor'>Back to recipes</Link>
                     </div>
-                    <ul className='ingredients'>
-                        <h2>Ingredients</h2>
-                        {activeRecipe.ingredientLines.map(ingredient => (
-                            <li key={ingredient}>{ingredient}</li>
-                        ))}
-                    </ul>
+                    <div>
+                        <ul className='ingredients'>
+                            <h2>Ingredients</h2>
+                            {activeRecipe.ingredientLines.map(ingredient => (
+                                <li key={ingredient}>{ingredient}</li>
+                            ))}
+                        </ul>
+                        <ul>
+                            <h2>Health</h2>
+                            {activeRecipe.healthLabels.map(health => (
+                                <li key={health}>{health}</li>
+                            ))}
+                        </ul>
+                    </div>
                     <ul className='nutrition'>
                         <h2>Nutrition</h2>
                         {Object.keys(activeRecipe.totalNutrients).map((item, i) => (
-                            i > 1 && i < 6 ?
+                            ( i > 1 && i < 6 ) ?
                             <li className='nutrition-fats' key={i}>
                                 { activeRecipe.totalNutrients[item].label }: { Math.floor(activeRecipe.totalNutrients[item].quantity) } { activeRecipe.totalNutrients[item].unit }
                             </li>
@@ -65,7 +69,7 @@ const Ingredients = () => {
                             <li className='nutrition-chemical' key={i}>
                                 { activeRecipe.totalNutrients[item].label }: { Math.floor(activeRecipe.totalNutrients[item].quantity) } { activeRecipe.totalNutrients[item].unit }
                             </li>
-                            : i < 30 ?
+                            : i < 31 ?
                             <li className='nutrition-vitamins' key={i}>
                                 { activeRecipe.totalNutrients[item].label }: { Math.floor(activeRecipe.totalNutrients[item].quantity) } { activeRecipe.totalNutrients[item].unit }
                             </li>
