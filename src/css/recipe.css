@@ -1,0 +1,62 @@
+.results {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+  .recipe {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 15px;
+  }
+  .recipe h2 {
+    border-bottom: 5px solid black;
+    margin-bottom: 0;
+  }
+  .recipe img {
+    border-radius: 10px 10px 0 0;
+    border: 2px solid black;
+  }
+  .recipe p {
+    margin: 0;
+    margin-bottom: 3px;
+  }
+  .recipe p:first-of-type {
+    font-family: 'Lobster';
+    text-align: right;
+  }
+  .anchor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    font-size: 120%;
+    font-weight: bold;
+    border: 2px solid black;
+  }
+  .recipe .anchor {
+    border-top: none;
+  }
+  .ingredients-page .anchor {
+    margin: 15px 0;
+  }
+
+  .info {
+    padding-top: 15vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .info p {
+    font-size: 120%;
+    padding: 0 20px;
+  }
+  .info p:first-of-type {
+    font-family: 'Lobster';
+    font-size: 200%;
+    margin: 15px;
+  }

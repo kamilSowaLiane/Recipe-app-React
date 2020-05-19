@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import '../css/recipe.css'
 
 const Recipe = ({recipes}) => {
     const recipeList = recipes.map(recipe => {

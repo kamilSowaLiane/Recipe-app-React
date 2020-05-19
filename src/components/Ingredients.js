@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import { useLocation, Link } from 'react-router-dom'
+import '../css/ingredients.css'
 
 const APP_ID = 'f9802810'
 const APP_KEY = 'd893427a6abd4ee178a3b3a98afdeaae'
@@ -21,7 +22,7 @@ const Ingredients = () => {
         return () => { ignore = true; }
         
     },[location])
-    
+
     return (
         <div className="container">
             {activeRecipe.length === 0 ? (
@@ -35,8 +36,8 @@ const Ingredients = () => {
                         <p>Calories: {Math.floor(activeRecipe.calories)}</p>
                         <p>Total meal weight: {Math.floor(activeRecipe.totalWeight)} g</p>
                         <p>Servings: {activeRecipe.yield}</p>
-                        <p>Diet: {activeRecipe.dietLabels}</p>
-                        <p>Cautions: {activeRecipe.cautions.map(caution => (`${caution}  `))}</p> 
+                        <p>Diet: {activeRecipe.dietLabels.map(diet => (`${diet} `))}</p>
+                        <p>Cautions: {activeRecipe.cautions.map(caution => (`${caution} `))}</p>
                         <Link to='/' className='anchor'>Back to recipes</Link>
                     </div>
                     <div>
